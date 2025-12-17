@@ -42,7 +42,7 @@ Mesmo modelos simples já trazem valor, pois ajudam as empresas a direcionar esf
 
 Expectativa para este hackathon
 
-Público: alunos iniciantes em tecnologia, sem experiência profissional na área, mas que já estudaram Back-end com Java (APIs REST, persistência, testes) e Data Science (Python, Pandas, scikit-learn, ML supervisionado).
+Público: alunos iniciantes em tecnologia, sem experiência profissional na área, mas que já estudaram Back-end com Node.js/NestJS (APIs REST, persistência, testes) e Data Science (Python, Pandas, scikit-learn, ML supervisionado).
 
 Objetivo: construir, em grupo, um MVP (mínimo produto viável) capaz de prever se um cliente vai cancelar e disponibilizar essa previsão via uma API funcional.
 
@@ -62,7 +62,7 @@ Métricas de desempenho (Acurácia, Precisão, Recall, F1-score);
 
 Serialização do modelo (joblib/pickle).
 
-Aplicação Back-End (API REST) do time de Java:
+Aplicação Back-End (API REST) do time de Back-End (NestJS):
 
 Endpoint que recebe informações de um cliente e retorna a previsão do modelo (Ex.: “Vai cancelar” / “Vai continuar”);
 
@@ -102,7 +102,7 @@ Funcionalidades opcionais
 
 Endpoint GET /stats: retorna estatísticas básicas, como: { "total_avaliados": 500, "taxa_churn": 0.23 }
 
-Persistência de previsões: armazenar clientes e resultados em banco (H2 ou PostgreSQL).
+Persistência de previsões: armazenar clientes e resultados em banco (SQLite, PostgreSQL ou MongoDB).
 
 Dashboard simples (Streamlit ou HTML): visualiza clientes com maior risco.
 
@@ -112,7 +112,7 @@ Batch Prediction: endpoint que aceita lista de clientes (arquivo CSV).
 
 Containerização: rodar o sistema completo com Docker/Docker Compose.
 
-Testes automatizados: unitários e de integração simples (JUnit, pytest).
+Testes automatizados: unitários e de integração simples (Jest, Supertest).
 
 Orientações técnicas para alunos
 
@@ -132,7 +132,7 @@ Salvar modelo e pipeline (joblib.dump) e garantir que possa ser carregado fora d
 
 Time de Back-end:
 
-Construir uma API REST (Java + Spring Boot);
+Construir uma API REST (Node.js + NestJS);
 
 Receber JSON com dados de cliente e devolver a previsão;
 
