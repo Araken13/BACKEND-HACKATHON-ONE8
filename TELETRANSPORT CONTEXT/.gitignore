@@ -1,0 +1,28 @@
+__pycache__/
+*.pyc
+.venv/
+.venv_wsl/
+venv/
+env/
+*.joblib
+*.pkl
+*.db
+*.sqlite3
+.DS_Store
+
+# Node modules
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+.env
+.idea/
+.vscode/
+
+# Layout Context
+PROJECT_CONTEXT_SUMMARY.txt
+PROJECT_CONTEXT_PDR.txt
+
