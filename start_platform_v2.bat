@@ -2,8 +2,8 @@
 echo Iniciando ChurnInsight V2 - Full System
 echo =======================================
 
-echo 1. Iniciando Microservico Python (IA Mock)...
-start "Python IA Service" cmd /k "python api_v2_mock.py"
+echo 1. Iniciando Microservico Python (IA REAL V4)...
+start "Python IA Service" cmd /k "py -3.13 api_v2_real.py"
 
 echo 2. Aguardando 5 segundos para o Python subir...
 timeout /t 5 /nobreak >nul

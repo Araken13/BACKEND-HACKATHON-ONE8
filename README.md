@@ -1,145 +1,154 @@
-# 🔮 ChurnInsight: AI-Powered Customer Retention Platform
+# 🔮 ChurnInsight V2 - Plataforma de Previsão de Churn
 
-[![Manual de Instalação](https://img.shields.io/badge/Instalação-PASSO%20A%20PASSO-success?style=for-the-badge)](./docs/MANUAL_INSTALACAO.md)
+![Tech Stack](tech_satck.png)
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+Este projeto é uma solução completa (Full Stack) para prever a probabilidade de cancelamento de clientes (Churn) utilizando Inteligência Artificial.
 
-> **Preveja o futuro, retenha seus clientes.**
-> O ChurnInsight é uma solução completa de **Analytics & Machine Learning** projetada para identificar clientes em risco de cancelamento (Churn) em serviços de streaming, permitindo ações proativas de retenção.
+## 🚀 Tecnologias Utilizadas
 
----
+A arquitetura foi projetada em microserviços para modularidade e escalabilidade:
 
-## 📋 Sobre o Projeto
-
-O **ChurnInsight** não é apenas um modelo preditivo; é um ecossistema completo de engenharia de dados e software. Ele combina um backend robusto em **Python/FastAPI** com um frontend moderno em **React**, utilizando **Machine Learning (Random Forest)** para analisar padrões de comportamento de usuários em tempo real.
-
-Desenvolvido durante o **Hackathon One 8 Alura**, este projeto demonstra a aplicação prática de Data Science em problemas reais de negócio.
-
-### 🌟 Diferenciais
-
-- **Pipelines Robustos**: Tratamento automático de dados sujos, nulos e encoding de variáveis.
-- **Hybrid AI Core**: Funciona com modelos treinados (Scikit-learn) ou Fallback Lógico Inteligente para ambientes leves.
-- **Arquitetura Moderna**: API REST + GraphQL servindo um Frontend reativo.
-- **Developer Experience**: Scripts de automação para testes, treino e setup.
+1. **Backend (Orquestrador):** NestJS (Node.js) + TypeORM + SQLite.
+2. **Frontend (Interface):** React + Vite + Tailwind CSS.
+3. **AI Service (Cérebro):** Python Flask + Scikit-Learn (Random Forest).
 
 ---
 
-## 🚀 Stack Tecnológico
+## 📋 Funcionalidades
 
-### Backend & Data Science
+### Obrigatórias (MVP)
 
-- **Linguagem**: Python 3.10+
-- **API Framework**: FastAPI (Alta performance, Async I/O)
-- **ML & Dados**: Pandas, Scikit-learn, Joblib, Numpy
-- **Qualidade**: Pydantic para validação rigorosa de dados
+* ✅ **Previsão Individual:** Endpoint para pontuar um único cliente.
+* ✅ **Probabilidade Real:** O modelo retorna a % de chance de churn (ex: 85.3%).
+* ✅ **Validação de Dados:** O sistema valida os campos de entrada.
 
-### Frontend
+### Extras Implementados
 
-- **Framework**: React 18
-- **Build Tool**: Vite (Ultra-rápido)
-- **Data Fetching**: Apollo Client (GraphQL Integation)
-- **Linguagem**: TypeScript / JavaScript
+* ✨ **Dashboard em Tempo Real:** KPIs de total analisado e risco atualizados automaticamente.
+* ✨ **Upload em Lote (Batch):** Envie um CSV com milhares de clientes e receba o resultado na hora.
+* ✨ **Persistência:** Histórico de todas as análises salvo em banco de dados SQLite.
+* ✨ **Modelo Otimizado (V4):** Random Forest com **96% de acurácia** treinado com dados V4.
 
 ---
 
-## 📂 Estrutura do Repositório
+## 🛠️ Como Executar o Projeto
 
-```bash
-📦 CHURN-INSIGHT
-├── 📂 analytics          # Dashboards e Análises Exploratórias
-├── 📂 docs               # Documentação Completa (Guias, Manuais)
-├── 📂 frontend           # Aplicação Web (React/Vite)
-├── 📂 scripts            # Scripts Utilitários (Setup, Automação)
-├── 📂 tests              # Testes Automatizados
-├── 📄 api.py             # Gateway da API (FastAPI + GraphQL)
-├── 📄 train_model.py     # Pipeline de Treinamento de ML
-├── 📄 churn_model.joblib # Artefato do Modelo Serializado
-└── 📄 requirements.txt   # Dependências do Backend
+Simplicidade total. Criamos um script que sobe toda a infraestrutura com um clique.
+
+### Pré-requisitos
+
+* Node.js (v18+)
+* Python (3.10 ou superior, testado com 3.13)
+* Git
+
+### Passo a Passo
+
+1. **Clone o repositório:**
+
+    ```bash
+    git clone https://github.com/seurepo/churninsight-v2.git
+    cd churninsight-v2
+    ```
+
+2. **Instale as dependências (Primeira vez):**
+
+    ```bash
+    # Backend
+    cd backend_v2 && npm install && cd ..
+    
+    # Frontend
+    cd frontend_v2 && npm install && cd ..
+    
+    # Python
+    pip install scikit-learn pandas numpy joblib flask flask-cors
+    ```
+
+3. **Inicie a Plataforma:**
+    No Windows, basta clicar duas vezes em **`start_platform_v2.bat`** ou rodar no terminal:
+
+    ```bash
+    ./start_platform_v2.bat
+    ```
+
+    Isso abrirá 3 janelas:
+    * 🧠 **Python API** na porta `8000`
+    * 🚀 **NestJS Backend** na porta `3000`
+    * 🎨 **React Frontend** na porta `5173` (ou `5174`)
+
+4. **Acesse:**
+    Abra seu navegador em: **`http://localhost:5173`** (ou a porta indicada no terminal).
+
+---
+
+## 📡 Documentação da API
+
+O sistema expõe uma API RESTful documentada via Swagger e endpoints diretos.
+
+### 1. Previsão Individual
+
+* **Endpoint:** `POST /churn/predict` (NestJS)
+* **URL:** `http://localhost:3000/churn/predict`
+* **Body (JSON):**
+
+    ```json
+    {
+        "idade": 30,
+        "genero": "Masculino",
+        "regiao": "Sudeste",
+        "tipo_contrato": "Mensal",
+        "metodo_pagamento": "Pix",
+        "plano_assinatura": "Padrão",
+        "valor_mensal": 29.90,
+        "tempo_assinatura_meses": 6,
+        "dias_ultimo_acesso": 5,
+        "visualizacoes_mes": 20,
+        "contatos_suporte": 0,
+        "dispositivo_principal": "Mobile",
+        "categoria_favorita": "Séries",
+        "avaliacao_plataforma": 4.5
+    }
+    ```
+
+* **Retorno:**
+
+    ```json
+    {
+        "previsao": "Vai continuar",
+        "probabilidade": 0.1234,
+        "risco_alto": false,
+        "historico_id": 42
+    }
+    ```
+
+### 2. Dashboard Stats
+
+* **Endpoint:** `GET /churn/stats`
+* **Retorno:**
+
+    ```json
+    {
+        "total_analises": 150,
+        "total_churn_previsto": 23,
+        "taxa_risco": 0.153
+    }
+    ```
+
+---
+
+## 📂 Estrutura de Pastas
+
+```
+/
+├── backend_v2/         # Código NestJS (API Gateway + Banco)
+├── frontend_v2/        # Código React (Interface Gráfica)
+├── README.md           # Este arquivo
+├── start_platform_v2.bat # Script de Inicialização Automática
+├── api_v2_real.py      # Microserviço de IA (Produção)
+├── train_model_v4.py   # Script de Treinamento e ETL
+├── churn_model_v4.joblib # O Modelo de IA treinado
+└── dados_streamingV4.csv # Dataset utilizado
 ```
 
----
+## 👥 Equipe
 
-## ⚡ Guia de Início Rápido (Quickstart)
-
-### 1. Backend Setup
-
-```bash
-# Instale as dependências
-pip install -r requirements.txt
-
-# Treine o modelo (Gera o arquivo joblib)
-python train_model.py
-
-# Inicie a API (Disponível em http://localhost:8000)
-python api.py
-```
-
-### 2. Frontend Setup
-
-```bash
-cd frontend
-
-# Instale os pacotes npm
-npm install
-
-# Inicie a interface (Disponível em http://localhost:5173 ou 5174)
-npm run dev
-```
-
-### 💡 Simulação Avançada (Windows vs WSL)
-
-Quer testar como um profissional usando Windows ou Linux (WSL)?
-👉 **[Leia o Guia de Simulação Completo](./docs/GUIA_SIMULACAO_WIN_WSL.md)**
-
----
-
-## 🧠 Como Funciona a Inteligência Artificial
-
-O modelo analisa variáveis comportamentais chave para calcular o `churn_probability`:
-
-| Variável | Impacto na Previsão |
-|----------|---------------------|
-| `tempo_assinatura_meses` | Clientes recentes (< 3 meses) têm maior risco. |
-| `avaliacao_conteudo` | Notas baixas são fortes indicativos de insatisfação. |
-| `visualizacoes_mes` | Baixo engajamento correlaciona com cancelamento. |
-| `contatos_suporte` | Alto volume de contatos indica problemas técnicos/fustração. |
-
----
-
-## 🧪 Testes e Validação
-
-O projeto inclui uma suíte de testes automatizados para garantir a estabilidade:
-
-- **Teste de Modelo**: `python tests/test_model.py` (Valida a acurácia das previsões).
-- **Teste de Integração API**: `python tests/test_api_request.py` (Simula requisições reais HTTP).
-
-Para ver os resultados da última execução, consulte o arquivo [RELATORIO_VALIDACAO.md](./docs/RELATORIO_VALIDACAO.md).
-
----
-
-## 🗺️ Roadmap de Evolução
-
-- [x] **MVP**: API Preditiva + Frontend Básico
-- [x] **Integração GraphQL**: Consultas otimizadas
-- [x] **Docker Compose**: Orquestração completa do ambiente
-- [x] **Banco de Dados Real**: Migração para PostgreSQL
-- [x] **Dashboard Analytics**: Gráficos de tendências de churn
-
-## 📚 Documentação Técnica
-
-Para detalhes profundos sobre a arquitetura, decisões técnicas e infraestrutura, leia a [Especificação Técnica Completa](./ESPECIFICACAO_TECNICA.md).
-
----
-
-<div align="center">
-  <p>Desenvolvido com 💙 por <strong>Araken Carmo Neto</strong> no Hackathon One Alura</p>
-  <p>
-    <a href="https://linkedin.com/in/araken">LinkedIn</a> •
-    <a href="https://github.com/Araken13">GitHub</a>
-  </p>
-</div>
+Projeto desenvolvido para o Hackathon Oracle One G8.
