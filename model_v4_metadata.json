@@ -1,0 +1,1 @@
+{"numeric": ["idade", "valor_mensal", "tempo_assinatura_meses", "dias_ultimo_acesso", "contatos_suporte", "visualizacoes_mes", "tempo_medio_sessao_min", "avaliacao_conteudo_media", "avaliacao_conteudo_ultimo_mes", "avaliacao_plataforma"], "categorical": ["genero", "regiao", "tipo_contrato", "metodo_pagamento", "plano_assinatura", "dispositivo_principal", "categoria_favorita"]}
